@@ -1,0 +1,12 @@
+<launch>
+    <node
+        pkg="arduinobot_remote" type="task_server.py" name="task_server" respawn="true"
+        output="screen"
+    />
+
+    <node
+        pkg="arduinobot_remote" type="alexa_interface.py" name="alexa_interface" respawn="true"
+        output="screen"
+    />
+
+</launch>

@@ -1,0 +1,14 @@
+<launch>
+    <arg name="model" default="$(find arduinobot_description)/urdf/arduinobot.urdf.xacro" />
+    <param name="robot_description"
+        command="$(find xacro)/xacro $(arg model)" />
+
+    <include file="$(find arduinobot_controller)/launch/controller.launch">
+        <arg name="is_sim" value="false" />
+    </include>
+    <include file="$(find arduinobot_moveit)/launch/move_group.launch" />
+    <include file="$(find arduinobot_moveit)/launch/moveit_rviz.launch">
+        <arg name="rviz_config" value="$(find arduinobot_moveit)/launch/moveit.rviz" />
+    </include>
+    <include file="$(find arduinobot_remote)/launch/remote_interface.launch" />
+</launch>
