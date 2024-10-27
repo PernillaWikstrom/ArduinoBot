@@ -1,7 +1,7 @@
 <launch>
     <arg name="model" default="$(find arduinobot_description)/urdf/arduinobot.urdf.xacro" />
     <param name="robot_description"
-        command="$(find xacro)/xacro $(arg model)" />
+        command="$(find xacro)/xacro --inorder $(arg model)" />
 
     <include file="$(find arduinobot_controller)/launch/controller.launch">
         <arg name="is_sim" value="false" />
